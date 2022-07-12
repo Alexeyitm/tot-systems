@@ -1,11 +1,28 @@
 .navlink {
-  margin-bottom: 20px;
+  display: inline-block;
+  max-width: 95%;
+  margin-bottom: 15px;
   width: max-content;
   text-decoration: none;
   display: grid;
+  grid-template-columns: 35px minmax(0, 1fr) 40px;
   grid-template-areas: 
-    'logo title'
-    'buttons buttons';
+    'logo title buttons';
+  overflow: hidden;
+}
+
+.navlink:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 560px) {
+  .navlink {
+    grid-template-columns: 40px;
+    grid-template-areas: 
+      'logo'
+      'buttons';
+    margin: 0 auto 15px;
+  }
 }
 
 .navlink:nth-child(6) {
@@ -19,7 +36,15 @@
   grid-area: logo;
 }
 
+@media screen and (max-width: 560px) {
+  .logo {
+    margin: 0 0 5px 5px;
+  }
+}
+
 .title {
+  display: inline-block;
+  max-width: 100%;
   font-size: 14px;
   margin: 0;
   color: #fff;
@@ -27,8 +52,38 @@
   text-align: center;
   width: max-content;
   grid-area: title;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 560px) {
+  .title {
+    display: none;
+  }
 }
 
 .buttons {
   grid: buttons;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.rename {
+  background: url(../../../images/folders/rename.png) no-repeat;
+  background-size: contain;
+}
+
+.delete {
+  background: url(../../../images/folders/delete.png) no-repeat;
+  background-size: contain;
 }

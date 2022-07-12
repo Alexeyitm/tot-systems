@@ -1,4 +1,5 @@
 .folders {
+  padding: 10px;
   grid-area: folders;
   background-color: #202124;
   border-radius: 0 10px 0 0;

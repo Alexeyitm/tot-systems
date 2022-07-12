@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tot-systems/static/css/main.2ea96f2d.css",
-    "main.js": "/tot-systems/static/js/main.60485f94.js",
+    "main.css": "/tot-systems/static/css/main.4f4ad62f.css",
+    "main.js": "/tot-systems/static/js/main.e9439aaa.js",
     "static/js/787.d7362b69.chunk.js": "/tot-systems/static/js/787.d7362b69.chunk.js",
     "static/media/background.jpg": "/tot-systems/static/media/background.0b62893946d29f3ec292.jpg",
     "index.html": "/tot-systems/index.html",
-    "main.2ea96f2d.css.map": "/tot-systems/static/css/main.2ea96f2d.css.map",
-    "main.60485f94.js.map": "/tot-systems/static/js/main.60485f94.js.map",
+    "main.4f4ad62f.css.map": "/tot-systems/static/css/main.4f4ad62f.css.map",
+    "main.e9439aaa.js.map": "/tot-systems/static/js/main.e9439aaa.js.map",
     "787.d7362b69.chunk.js.map": "/tot-systems/static/js/787.d7362b69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ea96f2d.css",
-    "static/js/main.60485f94.js"
+    "static/css/main.4f4ad62f.css",
+    "static/js/main.e9439aaa.js"
   ]
 }

@@ -12,19 +12,25 @@ function App() {
   /* Стейты попапов */
   const [isNewFolderPopupOpen, setIsNewFolderPopupOpen] = useState(false);
   const [isRenameFolderPopupOpen, setIsRenameFolderPopupOpen] = useState(false);
+  const [isDeleteFolderPopupOpen, setIsDeleteFolderPopupOpen] = useState(false);
 
   /* Стейты инпутов */
   const [isNewFolderInput, setIsNewFolderInput] = useState('');
   const [isRenameFolderPopupInput, setRenameFolderPopupInput] = useState('');
+
+  /* Cтейт редактирования и удаления попапов */
+  const [isCurrentFolderRename, setIsCurrentFolderRename] = useState({name: '', id: ''});
+  const [isCurrentFolderDelete, setIsCurrentFolderDelete] = useState({id: ''});
   
   /* Закрытие попапов и очистка инпутов */
   const closeAllPopups = () => {
     setIsNewFolderPopupOpen(false);
     setIsRenameFolderPopupOpen(false);
+    setIsDeleteFolderPopupOpen(false);
     setTimeout(() => {
       setIsNewFolderInput('');
       setRenameFolderPopupInput('');
-    }, 1000);
+    }, 500);
   }
 
   /* Закрытие попапов по клику на оверлей */
@@ -50,10 +56,38 @@ function App() {
     }
   }, [isOpen])
 
+  /* Установка текущего значения редактируемого инпута */
+  useEffect(() => {
+    setRenameFolderPopupInput(isCurrentFolderRename.name);
+  }, [isCurrentFolderRename])
+
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
-    data.folders.push({name: isNewFolderInput, custom: true});
+    data.folders.push({name: isNewFolderInput, id: data.folders[data.folders.length - 1].id + 1, custom: true});
+    closeAllPopups();
+  }
+
+  /* Сабмит редактирования папки */
+  const handleSubmitRenameFolder = (e) => {
+    e.preventDefault();
+    data.folders.forEach(folder => {
+      if (folder.id === isCurrentFolderRename.id) {
+        folder.name = isRenameFolderPopupInput;
+      }
+    })
+    closeAllPopups();
+  }
+
+  /* Сабмит удаления папки */
+  const handleSubmitDeleteFolder = (e) => {
+    e.preventDefault();
+    data.folders.forEach((folder, i) => {
+      if (folder.id === isCurrentFolderDelete.id) {
+        data.folders.splice(i, 1)
+      }
+      else i++;
+    })
     closeAllPopups();
   }
 
@@ -67,6 +101,9 @@ function App() {
           folders={data.folders}
           openPopupNewFolder={setIsNewFolderPopupOpen}
           openPopupRenameFolder={setIsRenameFolderPopupOpen}
+          openPopupDeleteFolder={setIsDeleteFolderPopupOpen}
+          setIsCurrentFolderRename={setIsCurrentFolderRename}
+          setIsCurrentFolderDelete={setIsCurrentFolderDelete}
         />
         <Letter />
         <PopupFolder
@@ -84,6 +121,14 @@ function App() {
           isOpen={isRenameFolderPopupOpen}
           value={isRenameFolderPopupInput}
           setInput={setRenameFolderPopupInput}
+          handleSubmit={handleSubmitRenameFolder}
+          handleClickOverlay={handleClickOverlay}
+        />
+        <PopupFolder
+          title="Удалить папку?"
+          textButton="Да"
+          isOpen={isDeleteFolderPopupOpen}
+          handleSubmit={handleSubmitDeleteFolder}
           handleClickOverlay={handleClickOverlay}
         />
       </div>

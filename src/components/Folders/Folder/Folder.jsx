@@ -3,7 +3,19 @@ import { NavLink } from "react-router-dom";
 import s from './Folder.module.css';
 import folder from '../../../images/folders/folder.png'
 
-function Folder({ path, logo=folder, name, custom, openPopupRenameFolder }) {
+function Folder({ path, logo=folder, name, id, custom, openPopupRenameFolder, 
+  openPopupDeleteFolder, setIsCurrentFolderRename, setIsCurrentFolderDelete }) {
+
+  const handleClickRenameFolder = () => {
+    openPopupRenameFolder(true);
+    setIsCurrentFolderRename({name: name, id: id});
+  }
+
+  const handleClickDeleteFolder = () => {
+    openPopupDeleteFolder(true);
+    setIsCurrentFolderDelete({id: id});
+  }
+
   return (
     <NavLink 
       to={path}
@@ -18,9 +30,12 @@ function Folder({ path, logo=folder, name, custom, openPopupRenameFolder }) {
       <div className={(custom ? s.buttons : s.buttons_disabled)}>
         <button 
           className={`${s.button} ${s.rename}`}
-          onClick={openPopupRenameFolder}
+          onClick={handleClickRenameFolder}
         ></button>
-        <button className={`${s.button} ${s.delete}`}></button>
+        <button
+          className={`${s.button} ${s.delete}`}
+          onClick={handleClickDeleteFolder}
+        ></button>
       </div>
     </NavLink>
   );

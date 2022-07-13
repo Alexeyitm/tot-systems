@@ -15,23 +15,28 @@ const data = {
     [
       {
         name: 'Входящие',
-        logo: incoming
+        logo: incoming,
+        id: 1
       },
       {
         name: 'Отправленные',
-        logo: sent
+        logo: sent,
+        id: 2
       },
       {
         name: 'Черновики',
-        logo: drafts
+        logo: drafts,
+        id: 3
       },
       {
         name: 'Удаленные',
-        logo: deleted
+        logo: deleted,
+        id: 4
       },
       {
         name: 'Спам',
-        logo: spam
+        logo: spam,
+        id: 5
       }
     ],
   letter: 

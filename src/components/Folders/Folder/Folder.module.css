@@ -9,6 +9,7 @@
   grid-template-areas: 
     'logo title buttons';
   overflow: hidden;
+  transition: all .5s ease;
 }
 
 .folder:hover {

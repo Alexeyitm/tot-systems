@@ -13,21 +13,21 @@ function PopupFolder({ title, textButton, isOpen, value, setInput, handleSubmit,
       onClick={handleClickOverlay}
     >
       <form
-        className={s.container}
+        className={s.container + " " + (!setInput ? s.container_delete : "")}
         onSubmit={handleSubmit}
       >
         <h2 className={s.title}>{title}</h2>
-        <input 
-          className={s.input}
+        <input
+          className={setInput ? s.input : s.input__hidden}
           type="text"
           placeholder="Введите название папки"
           value={value}
           onChange={handleChange}
         />
         <button
-          className={s.button + " " + (!value ? s.button_disabled : "")}
+          className={s.button + " " + (setInput && !value ? s.button_disabled : "")}
           type="submit"
-          disabled={!value ? s.button_disabled : null}
+          disabled={setInput && !value ? s.button_disabled : null}
         >{textButton}</button>
       </form>
     </div>

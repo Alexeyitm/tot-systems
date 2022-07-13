@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import s from './Navlink.module.css';
+import s from './Folder.module.css';
 import folder from '../../../images/folders/folder.png'
 
-function Navlink({ path, logo=folder, name, openPopupRenameFolder }) {
+function Folder({ path, logo=folder, name, custom, openPopupRenameFolder }) {
   return (
     <NavLink 
       to={path}
-      className={s.navlink}
+      className={s.folder}
     >
       <img
         className={s.logo}
@@ -15,7 +15,7 @@ function Navlink({ path, logo=folder, name, openPopupRenameFolder }) {
         alt={name}
       />
       <h2 className={s.title}>{name}</h2>
-      <div className={s.buttons}>
+      <div className={(custom ? s.buttons : s.buttons_disabled)}>
         <button 
           className={`${s.button} ${s.rename}`}
           onClick={openPopupRenameFolder}
@@ -26,4 +26,4 @@ function Navlink({ path, logo=folder, name, openPopupRenameFolder }) {
   );
 }
 
-export default Navlink;
+export default Folder;

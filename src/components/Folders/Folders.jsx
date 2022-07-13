@@ -1,5 +1,5 @@
 import s from './Folders.module.css';
-import Navlink from './Navlink/Navlink';
+import Folder from './Folder/Folder';
 import ButtonAdd from './ButtonAdd/ButtonAdd';
 
 function Folders({ folders, openPopupNewFolder, openPopupRenameFolder }) {
@@ -9,11 +9,12 @@ function Folders({ folders, openPopupNewFolder, openPopupRenameFolder }) {
         openPopupNewFolder={openPopupNewFolder}
       />
       {folders.map(folder => 
-        <Navlink
+        <Folder
           key={folder.name}
           path={folder.name}
           logo={folder.logo} 
           name={folder.name}
+          custom={folder.custom}
           openPopupRenameFolder={openPopupRenameFolder}
         />
       )}

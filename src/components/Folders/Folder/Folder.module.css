@@ -1,4 +1,4 @@
-.navlink {
+.folder {
   display: inline-block;
   max-width: 95%;
   margin-bottom: 15px;
@@ -11,12 +11,12 @@
   overflow: hidden;
 }
 
-.navlink:hover {
+.folder:hover {
   opacity: .8;
 }
 
 @media screen and (max-width: 560px) {
-  .navlink {
+  .folder {
     grid-template-columns: 40px;
     grid-template-areas: 
       'logo'
@@ -25,7 +25,7 @@
   }
 }
 
-.navlink:nth-child(6) {
+.folder:nth-child(6) {
   margin-bottom: 40px;
 }
 
@@ -67,6 +67,10 @@
   grid: buttons;
   display: flex;
   align-items: center;
+}
+
+.buttons_disabled {
+  display: none;
 }
 
 .button {

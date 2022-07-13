@@ -15,11 +15,16 @@ function App() {
 
   /* Стейты инпутов */
   const [isNewFolderInput, setIsNewFolderInput] = useState('');
+  const [isRenameFolderPopupInput, setRenameFolderPopupInput] = useState('');
   
   /* Закрытие попапов и очистка инпутов */
   const closeAllPopups = () => {
     setIsNewFolderPopupOpen(false);
-    setTimeout(() => setIsNewFolderInput(''), 1000);
+    setIsRenameFolderPopupOpen(false);
+    setTimeout(() => {
+      setIsNewFolderInput('');
+      setRenameFolderPopupInput('');
+    }, 1000);
   }
 
   /* Закрытие попапов по клику на оверлей */
@@ -77,6 +82,9 @@ function App() {
           title="Переименовать папку"
           textButton="Сохранить"
           isOpen={isRenameFolderPopupOpen}
+          value={isRenameFolderPopupInput}
+          setInput={setRenameFolderPopupInput}
+          handleClickOverlay={handleClickOverlay}
         />
       </div>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import data from './../data/data'
 import s from'./App.module.css';
@@ -10,15 +10,15 @@ import PopupFolder from './PopupFolder/PopupFolder';
 function App() {
 
   /* Стейты попапов */
-  const [isOpenNewFolderPopup, setIsOpenNewFolderPopup] = useState(false);
-  const [isOpenRenameFolderPopup, setIsOpenRenameFolderPopup] = useState(false);
+  const [isNewFolderPopupOpen, setIsNewFolderPopupOpen] = useState(false);
+  const [isRenameFolderPopupOpen, setIsRenameFolderPopupOpen] = useState(false);
 
   /* Стейты инпутов */
   const [isNewFolderInput, setIsNewFolderInput] = useState('');
   
   /* Закрытие попапов и очистка инпутов */
   const closeAllPopups = () => {
-    setIsOpenNewFolderPopup(false);
+    setIsNewFolderPopupOpen(false);
     setTimeout(() => setIsNewFolderInput(''), 1000);
   }
 
@@ -29,10 +29,26 @@ function App() {
     }
   }
 
+  /* Закрытие попапов при нажатии на Escape */
+  const isOpen = isNewFolderPopupOpen || isRenameFolderPopupOpen
+  useEffect(() => {
+    function closeByEscape(evt) {
+      if(evt.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+    if(isOpen) {
+      document.addEventListener('keydown', closeByEscape);
+      return () => {
+        document.removeEventListener('keydown', closeByEscape);
+      }
+    }
+  }, [isOpen])
+
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
-    data.folders.push({name: isNewFolderInput, custon: true});
+    data.folders.push({name: isNewFolderInput, custom: true});
     closeAllPopups();
   }
 
@@ -44,14 +60,14 @@ function App() {
         />
         <Folders 
           folders={data.folders}
-          openPopupNewFolder={setIsOpenNewFolderPopup}
-          openPopupRenameFolder={setIsOpenRenameFolderPopup}
+          openPopupNewFolder={setIsNewFolderPopupOpen}
+          openPopupRenameFolder={setIsRenameFolderPopupOpen}
         />
         <Letter />
         <PopupFolder
           title="Добавить новую папку"
           textButton="Сохранить"
-          isOpen={isOpenNewFolderPopup}
+          isOpen={isNewFolderPopupOpen}
           value={isNewFolderInput}
           setInput={setIsNewFolderInput}
           handleSubmit={handleSubmitNewFolder}
@@ -60,7 +76,7 @@ function App() {
         <PopupFolder
           title="Переименовать папку"
           textButton="Сохранить"
-          isOpen={isOpenRenameFolderPopup}
+          isOpen={isRenameFolderPopupOpen}
         />
       </div>
     </BrowserRouter>

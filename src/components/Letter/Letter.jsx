@@ -8,14 +8,24 @@ function Letter({ data }) {
     <div className={s.letter}>
       <Routes>
         {data.folders.map(folder =>
-          <Route key={folder.id} path={folder.path} element={123}></Route>
+          <Route 
+            key={folder.id}
+            path={folder.path}
+            element={data.letter.map(item => 
+              folder.path === item.type 
+                ? <Item 
+                    key={item.id}
+                    title={item.title}
+                  /> 
+                : null
+            )}
+          />
         )}
         <Route
           path="*"
           element={<Navigate to="/inbox" replace />}
         />
       </Routes>
-      <Item />
     </div>
   );
 }

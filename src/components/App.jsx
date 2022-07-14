@@ -27,6 +27,7 @@ function App() {
     setIsNewFolderPopupOpen(false);
     setIsRenameFolderPopupOpen(false);
     setIsDeleteFolderPopupOpen(false);
+    
     setTimeout(() => {
       setIsNewFolderInput('');
       setRenameFolderPopupInput('');
@@ -42,6 +43,7 @@ function App() {
 
   /* Закрытие попапов при нажатии на Escape */
   const isOpen = isNewFolderPopupOpen || isRenameFolderPopupOpen
+
   useEffect(() => {
     function closeByEscape(evt) {
       if(evt.key === 'Escape') {
@@ -90,6 +92,7 @@ function App() {
   /* Сабмит удаления папки */
   const handleSubmitDeleteFolder = (e) => {
     e.preventDefault();
+
     data.folders.forEach((folder, i) => {
       if (folder.id === isCurrentFolderDelete.id) {
         data.folders.splice(i, 1)

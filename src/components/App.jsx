@@ -6,7 +6,6 @@ import Header from './Header/Header';
 import Folders from './Folders/Folders';
 import Letter from './Letter/Letter';
 import PopupFolder from './PopupFolder/PopupFolder';
-import { api } from '../utils/api';
 
 function App() {
 
@@ -65,9 +64,6 @@ function App() {
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
-
-      console.log(api.translateText(isNewFolderInput))
-
     data.folders.push({
       name: isNewFolderInput,
       path: "" + (data.folders[data.folders.length - 1].id + 1), 

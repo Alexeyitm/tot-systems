@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/tot-systems/static/css/main.583cd504.css",
-    "main.js": "/tot-systems/static/js/main.bdc696a7.js",
+    "main.css": "/tot-systems/static/css/main.204a29d4.css",
+    "main.js": "/tot-systems/static/js/main.5ad7c3b4.js",
     "static/js/787.d7362b69.chunk.js": "/tot-systems/static/js/787.d7362b69.chunk.js",
     "static/media/background.jpg": "/tot-systems/static/media/background.0b62893946d29f3ec292.jpg",
+    "static/media/delete.svg": "/tot-systems/static/media/delete.8b1ca1d838e85f4b688c.svg",
+    "static/media/marker.svg": "/tot-systems/static/media/marker.1961f02a9c872827eafc.svg",
     "index.html": "/tot-systems/index.html",
-    "main.583cd504.css.map": "/tot-systems/static/css/main.583cd504.css.map",
-    "main.bdc696a7.js.map": "/tot-systems/static/js/main.bdc696a7.js.map",
+    "static/media/marker-active.svg": "/tot-systems/static/media/marker-active.44511451917baf2f72cb.svg",
+    "main.204a29d4.css.map": "/tot-systems/static/css/main.204a29d4.css.map",
+    "main.5ad7c3b4.js.map": "/tot-systems/static/js/main.5ad7c3b4.js.map",
     "787.d7362b69.chunk.js.map": "/tot-systems/static/js/787.d7362b69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.583cd504.css",
-    "static/js/main.bdc696a7.js"
+    "static/css/main.204a29d4.css",
+    "static/js/main.5ad7c3b4.js"
   ]
 }

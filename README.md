@@ -11,12 +11,13 @@
     * Flexbox
     * Grid
 * JavaScript
+    * ES6
     * ООП
 * React.js
   * CRA
   * JSX
   * Hooks
-  * React DOM
+  * React-Router-Dom (v6.3.0)
 * Git
 * Webpack
 
@@ -34,3 +35,9 @@
 ## Посмотреть страницу и макет:
 
 * [Test task for TOT-Systems на GitHub Pages](https://alexeyitm.github.io/tot-systems/)
+
+## Что можно улучшить:
+
+* Перенести data в Redux/MobX
+* Заменить forEach на every в сабмитах редактирования и удаления папки
+* Найти и добавить API Translate для генерации оригинальных путей новых папок

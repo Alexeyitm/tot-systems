@@ -1,8 +1,8 @@
 .letter {
   grid-area: letter;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   background-color: #202124;
+  background: rgba(32, 33, 36, 0.8);
   border-radius: 10px 10px 0 0;
-  opacity: .8;
 }

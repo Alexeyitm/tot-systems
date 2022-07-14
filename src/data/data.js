@@ -15,26 +15,31 @@ const data = {
     [
       {
         name: 'Входящие',
+        path: 'inbox',
         logo: incoming,
         id: 1
       },
       {
         name: 'Отправленные',
+        path: 'sent',
         logo: sent,
         id: 2
       },
       {
         name: 'Черновики',
+        path: 'drafts',
         logo: drafts,
         id: 3
       },
       {
         name: 'Удаленные',
+        path: 'trash',
         logo: deleted,
         id: 4
       },
       {
         name: 'Спам',
+        path: 'spam',
         logo: spam,
         id: 5
       }

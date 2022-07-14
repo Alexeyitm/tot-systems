@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
-import data from './../data/data'
+import data from './../data/data';
 import s from'./App.module.css';
-import Header from './Header/Header'
-import Folders from './Folders/Folders'
-import Letter from './Letter/Letter'
+import Header from './Header/Header';
+import Folders from './Folders/Folders';
+import Letter from './Letter/Letter';
 import PopupFolder from './PopupFolder/PopupFolder';
+import { api } from '../utils/api';
 
 function App() {
 
@@ -64,7 +65,14 @@ function App() {
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
-    data.folders.push({name: isNewFolderInput, id: data.folders[data.folders.length - 1].id + 1, custom: true});
+
+      console.log(api.translateText(isNewFolderInput))
+
+    data.folders.push({
+      name: isNewFolderInput,
+      path: "" + (data.folders[data.folders.length - 1].id + 1), 
+      id: data.folders[data.folders.length - 1].id + 1, 
+      custom: true});
     closeAllPopups();
   }
 
@@ -105,7 +113,9 @@ function App() {
           setIsCurrentFolderRename={setIsCurrentFolderRename}
           setIsCurrentFolderDelete={setIsCurrentFolderDelete}
         />
-        <Letter />
+        <Letter 
+          data={data}
+        />
         <PopupFolder
           title="Добавить новую папку"
           textButton="Сохранить"

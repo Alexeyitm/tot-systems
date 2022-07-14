@@ -12,7 +12,7 @@ function Folders({ folders, openPopupNewFolder, openPopupRenameFolder,
       {folders.map(folder => 
         <Folder
           key={folder.id}
-          path={folder.name}
+          path={folder.path}
           logo={folder.logo} 
           name={folder.name}
           id={folder.id}

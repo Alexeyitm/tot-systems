@@ -1,8 +1,9 @@
 .item {
+  position: relative;
   margin: 10px auto 0;
   width: 95%;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 0 5px 10px;
   background: #202124;
   color: #fff;
   font-size: 14px;
@@ -23,6 +24,16 @@
   .title {
     margin: 10px 0 5px !important;
   }
+}
+
+.new {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 30px;
+  height: 30px;
+  background: url(../../../images/letter/new.png) no-repeat;
+  background-size: contain;
 }
 
 .buttons {

@@ -12,6 +12,7 @@ function Item({ item }) {
 
   return (
     <div className={s.item}>
+      <div className={(!item.read ? s.new : "")}></div>
       <div className={s.buttons}>
         <button
           className={s.button + " " + (isMarker ? s.marker_active : s.marker)}

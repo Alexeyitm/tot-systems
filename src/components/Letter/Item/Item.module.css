@@ -29,6 +29,30 @@
   grid-area: buttons;
 }
 
+.button {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.marker {
+  background: url(../../../images/letter/marker.svg) no-repeat;
+  background-size: contain;
+}
+
+.marker_active {
+  background: url(../../../images/letter/marker-active.svg) no-repeat;
+  background-size: contain;
+}
+
+.delete {
+  margin-top: 5px;
+  background: url(../../../images/letter/delete.svg) no-repeat;
+  background-size: contain;
+}
+
 .author {
   grid-area: author;
   margin: 0;

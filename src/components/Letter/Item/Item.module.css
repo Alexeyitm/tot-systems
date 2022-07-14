@@ -1,9 +1,46 @@
 .item {
   margin: 10px auto 0;
   width: 95%;
-  height: 20px;
   border-radius: 5px;
   padding: 5px;
   background: #202124;
   color: #fff;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 20px 1fr 2fr 1fr;
+  grid-template-areas: 
+    "buttons author title date";
+  grid-gap: 2%;
+}
+
+@media screen and (max-width: 560px) {
+  .item {
+    grid-template-columns: 20px 1fr 1fr;
+    grid-template-areas: 
+      "buttons author date"
+      "buttons title title";
+  }
+  .title {
+    margin: 10px 0 5px !important;
+  }
+}
+
+.buttons {
+  grid-area: buttons;
+}
+
+.author {
+  grid-area: author;
+  margin: 0;
+  font-size: 14px;
+}
+
+.title {
+  grid-area: title;
+  margin: 0;
+}
+
+.date {
+  grid-area: date;
+  text-align: center;
 }

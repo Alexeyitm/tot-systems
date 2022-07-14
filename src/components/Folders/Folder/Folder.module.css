@@ -24,6 +24,12 @@
       'buttons';
     margin: 0 auto 15px;
   }
+  .logo {
+    margin: 0 0 5px 5px !important;
+  }
+  .title {
+    display: none !important;
+  }
 }
 
 .folder:nth-child(6) {
@@ -35,12 +41,6 @@
   height: 30px;
   margin-right: 5px;
   grid-area: logo;
-}
-
-@media screen and (max-width: 560px) {
-  .logo {
-    margin: 0 0 5px 5px;
-  }
 }
 
 .title {
@@ -56,12 +56,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-@media screen and (max-width: 560px) {
-  .title {
-    display: none;
-  }
 }
 
 .buttons {

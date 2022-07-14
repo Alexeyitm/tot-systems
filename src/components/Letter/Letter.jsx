@@ -13,9 +13,9 @@ function Letter({ data }) {
             path={folder.path}
             element={data.letter.map(item => 
               folder.path === item.type 
-                ? <Item 
+                ? <Item
+                    item={item}
                     key={item.id}
-                    title={item.title}
                   /> 
                 : null
             )}

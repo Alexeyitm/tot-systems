@@ -64,10 +64,13 @@ function App() {
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
+
+    const newId = data.folders[data.folders.length - 1].id + 1;
+
     data.folders.push({
       name: isNewFolderInput,
-      path: "" + (data.folders[data.folders.length - 1].id + 1), 
-      id: data.folders[data.folders.length - 1].id + 1, 
+      path: "" + newId, 
+      id: newId, 
       custom: true});
     closeAllPopups();
   }
@@ -75,6 +78,7 @@ function App() {
   /* Сабмит редактирования папки */
   const handleSubmitRenameFolder = (e) => {
     e.preventDefault();
+
     data.folders.forEach(folder => {
       if (folder.id === isCurrentFolderRename.id) {
         folder.name = isRenameFolderPopupInput;

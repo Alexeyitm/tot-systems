@@ -33,7 +33,7 @@
 .yes {
   background: url(./../../../../images/letter/yes.svg) no-repeat;
   background-size: contain;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .no {

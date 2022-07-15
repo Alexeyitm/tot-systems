@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import s from './Item.module.css';
+import Confirm from './Confirm/Confirm'
 
 function Item({ item, data, setIsLetter }) {
 
@@ -15,28 +16,15 @@ function Item({ item, data, setIsLetter }) {
     setIsConfirmDelete(!isConfirmDelete);
   };
 
-  const handleClickConfirmYes = () => {
-    data.letter = data.letter.filter(el => el.id !== item.id);
-    setIsLetter(data.letter);
-  };
-
-  const handleClickConfirmNo = () => {
-    setIsConfirmDelete(false);
-  };
-
   return (
     <div className={s.item}>
-      <div className={s.confirm + " " + (isConfirmDelete ? s.confirm_open : "")}>
-        <h2 className={s.select}>Удалить письмо?</h2>
-        <button 
-          className={`${s.button} ${s.yes}`}
-          onClick={handleClickConfirmYes}
-        ></button>
-        <button 
-          className={`${s.button} ${s.no}`}
-          onClick={handleClickConfirmNo}
-        ></button>
-      </div>
+      <Confirm
+        item={item}
+        data={data}
+        setIsLetter={setIsLetter}
+        isConfirmDelete={isConfirmDelete}
+        setIsConfirmDelete={setIsConfirmDelete}
+      />
       <div className={!item.read ? s.new : ""}></div>
       <div className={s.buttons}>
         <button

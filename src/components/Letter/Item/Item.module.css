@@ -27,30 +27,6 @@
   }
 }
 
-.confirm {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #28AFEA;
-  visibility: hidden;
-  transition: all 1s ease;
-}
-
-.confirm_open {
-  left: 0;
-  visibility: visible;
-}
-
-.select {
-  width: max-content;
-  margin: 0 10px;
-  font-size: 18px;
-}
-
 .new {
   grid-area: new;
   width: 10px;
@@ -84,17 +60,6 @@
 .delete {
   margin-top: 5px;
   background: url(../../../images/letter/delete.svg) no-repeat;
-  background-size: contain;
-}
-
-.yes {
-  background: url(../../../images/letter/yes.svg) no-repeat;
-  background-size: contain;
-  margin-right: 5px;
-}
-
-.no {
-  background: url(../../../images/letter/no.svg) no-repeat;
   background-size: contain;
 }
 

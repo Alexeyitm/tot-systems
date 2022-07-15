@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './PopupFolder.module.css'
 
-function PopupFolder({ title, textButton, isOpen, value, setInput, handleSubmit, handleClickOverlay }) {
+function PopupFolder({ title, textButton, isOpen, value, 
+  setInput, handleSubmit, handleClickOverlay }) {
 
   const handleChange = (e) => {
     setInput(e.target.value)
-  }
+  };
 
   return (
     <div
@@ -32,6 +33,6 @@ function PopupFolder({ title, textButton, isOpen, value, setInput, handleSubmit,
       </form>
     </div>
   );
-}
+};
 
 export default PopupFolder;

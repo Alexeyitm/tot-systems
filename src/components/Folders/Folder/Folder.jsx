@@ -3,18 +3,18 @@ import { NavLink } from "react-router-dom";
 import s from './Folder.module.css';
 import image from '../../../images/folders/folder.png'
 
-function Folder({ folder, openPopupRenameFolder, 
-  openPopupDeleteFolder, setIsCurrentFolderRename, setIsCurrentFolderDelete }) {
+function Folder({ folder, openPopupRenameFolder, openPopupDeleteFolder, 
+  setIsCurrentFolderRename, setIsCurrentFolderDelete }) {
 
   const handleClickRenameFolder = () => {
     openPopupRenameFolder(true);
     setIsCurrentFolderRename({name: folder.name, id: folder.id});
-  }
+  };
 
   const handleClickDeleteFolder = () => {
     openPopupDeleteFolder(true);
     setIsCurrentFolderDelete({id: folder.id});
-  }
+  };
 
   return (
     <NavLink 
@@ -39,6 +39,6 @@ function Folder({ folder, openPopupRenameFolder,
       </div>
     </NavLink>
   );
-}
+};
 
 export default Folder;

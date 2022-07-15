@@ -16,7 +16,7 @@ function Letter({ data, isLetter, setIsLetter }) {
               folder.path === item.type 
                 ? <Item
                     item={item}
-                    isLetter={isLetter}
+                    data={data}
                     setIsLetter={setIsLetter}
                     key={item.id}
                   /> 

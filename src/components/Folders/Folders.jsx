@@ -4,6 +4,7 @@ import ButtonAdd from './ButtonAdd/ButtonAdd';
 
 function Folders({ folders, openPopupNewFolder, openPopupRenameFolder, 
   openPopupDeleteFolder, setIsCurrentFolderRename, setIsCurrentFolderDelete }) {
+
   return (
     <div className={s.folders}>
       <ButtonAdd 
@@ -21,6 +22,6 @@ function Folders({ folders, openPopupNewFolder, openPopupRenameFolder,
       )}
     </div>
   );
-}
+};
 
 export default Folders;

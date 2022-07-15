@@ -22,29 +22,32 @@ function App() {
   const [isCurrentFolderRename, setIsCurrentFolderRename] = useState({name: '', id: ''});
   const [isCurrentFolderDelete, setIsCurrentFolderDelete] = useState({id: ''});
 
-  /* ---------------------------------------------------------------- */
-  const[isLetter, setIsLetter] = useState(data.letter);
+  /* Cтейт с массивом писем */
+  const [isLetter, setIsLetter] = useState(data.letter);
   
   /* Закрытие попапов и очистка инпутов */
   const closeAllPopups = () => {
+
     setIsNewFolderPopupOpen(false);
     setIsRenameFolderPopupOpen(false);
     setIsDeleteFolderPopupOpen(false);
+
     setTimeout(() => {
       setIsNewFolderInput('');
       setRenameFolderPopupInput('');
     }, 500);
-  }
+  };
 
   /* Закрытие попапов по клику на оверлей */
   const handleClickOverlay = (e) => {
     if(e.target === e.currentTarget) {
       closeAllPopups();
     }
-  }
+  };
 
   /* Закрытие попапов при нажатии на Escape */
   const isOpen = isNewFolderPopupOpen || isRenameFolderPopupOpen
+
   useEffect(() => {
     function closeByEscape(evt) {
       if(evt.key === 'Escape') {
@@ -57,47 +60,54 @@ function App() {
         document.removeEventListener('keydown', closeByEscape);
       }
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   /* Установка текущего значения редактируемого инпута */
   useEffect(() => {
     setRenameFolderPopupInput(isCurrentFolderRename.name);
-  }, [isCurrentFolderRename])
+  }, [isCurrentFolderRename]);
 
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
+
     const newId = data.folders[data.folders.length - 1].id + 1;
+
     data.folders.push({
       name: isNewFolderInput,
       path: "" + newId, 
       id: newId, 
       custom: true});
+
     closeAllPopups();
-  }
+  };
 
   /* Сабмит редактирования папки */
   const handleSubmitRenameFolder = (e) => {
     e.preventDefault();
+
     data.folders.forEach(folder => {
       if (folder.id === isCurrentFolderRename.id) {
         folder.name = isRenameFolderPopupInput;
       }
     })
+
     closeAllPopups();
-  }
+  };
 
   /* Сабмит удаления папки */
   const handleSubmitDeleteFolder = (e) => {
     e.preventDefault();
+
     data.folders.forEach((folder, i) => {
       if (folder.id === isCurrentFolderDelete.id) {
         data.folders.splice(i, 1)
       }
       else i++;
     })
+    
     closeAllPopups();
-  }
+  };
 
   return (
     <HashRouter>
@@ -146,6 +156,6 @@ function App() {
       </div>
     </HashRouter>
   );
-}
+};
 
 export default App;

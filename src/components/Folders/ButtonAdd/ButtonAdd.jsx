@@ -10,6 +10,6 @@ function ButtonAdd({ openPopupNewFolder }) {
   return (
     <button className={s.button} onClick={handleClickButtonAdd}>Новая папка</button>
   );
-}
+};
 
 export default ButtonAdd;

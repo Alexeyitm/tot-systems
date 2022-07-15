@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Header.module.css';
 
 function Header({ user }) {
+  
   return (
     <header className={s.header}>
       <div className={s.logo}></div>

@@ -17,7 +17,7 @@ function Item({ item, data, setIsLetter }) {
   };
 
   return (
-    <div className={s.item}>
+    <article className={s.item}>
       <Confirm
         item={item}
         data={data}
@@ -43,7 +43,7 @@ function Item({ item, data, setIsLetter }) {
         <span className={s.theme}>Тема: </span>
       {item.title}</p>
       <span className={s.date}>{item.date}</span>
-    </div>
+    </article>
   );
 }
 

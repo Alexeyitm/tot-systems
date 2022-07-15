@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import data from './../data/data';
 import s from'./App.module.css';
 import Header from './Header/Header';
@@ -18,16 +18,18 @@ function App() {
   const [isNewFolderInput, setIsNewFolderInput] = useState('');
   const [isRenameFolderPopupInput, setRenameFolderPopupInput] = useState('');
 
-  /* Cтейт редактирования и удаления попапов */
+  /* Cтейты редактирования и удаления попапов */
   const [isCurrentFolderRename, setIsCurrentFolderRename] = useState({name: '', id: ''});
   const [isCurrentFolderDelete, setIsCurrentFolderDelete] = useState({id: ''});
+
+  /* ---------------------------------------------------------------- */
+  const[isLetter, setIsLetter] = useState(data.letter);
   
   /* Закрытие попапов и очистка инпутов */
   const closeAllPopups = () => {
     setIsNewFolderPopupOpen(false);
     setIsRenameFolderPopupOpen(false);
     setIsDeleteFolderPopupOpen(false);
-    
     setTimeout(() => {
       setIsNewFolderInput('');
       setRenameFolderPopupInput('');
@@ -43,7 +45,6 @@ function App() {
 
   /* Закрытие попапов при нажатии на Escape */
   const isOpen = isNewFolderPopupOpen || isRenameFolderPopupOpen
-
   useEffect(() => {
     function closeByEscape(evt) {
       if(evt.key === 'Escape') {
@@ -66,9 +67,7 @@ function App() {
   /* Сабмит создания новой папки */
   const handleSubmitNewFolder = (e) => {
     e.preventDefault();
-
     const newId = data.folders[data.folders.length - 1].id + 1;
-
     data.folders.push({
       name: isNewFolderInput,
       path: "" + newId, 
@@ -80,7 +79,6 @@ function App() {
   /* Сабмит редактирования папки */
   const handleSubmitRenameFolder = (e) => {
     e.preventDefault();
-
     data.folders.forEach(folder => {
       if (folder.id === isCurrentFolderRename.id) {
         folder.name = isRenameFolderPopupInput;
@@ -92,7 +90,6 @@ function App() {
   /* Сабмит удаления папки */
   const handleSubmitDeleteFolder = (e) => {
     e.preventDefault();
-
     data.folders.forEach((folder, i) => {
       if (folder.id === isCurrentFolderDelete.id) {
         data.folders.splice(i, 1)
@@ -103,7 +100,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={s.app}>
         <Header 
           user={data.user}
@@ -116,8 +113,10 @@ function App() {
           setIsCurrentFolderRename={setIsCurrentFolderRename}
           setIsCurrentFolderDelete={setIsCurrentFolderDelete}
         />
-        <Letter 
+        <Letter
           data={data}
+          isLetter={isLetter}
+          setIsLetter={setIsLetter}
         />
         <PopupFolder
           title="Добавить новую папку"
@@ -145,7 +144,7 @@ function App() {
           handleClickOverlay={handleClickOverlay}
         />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

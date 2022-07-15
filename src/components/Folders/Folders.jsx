@@ -11,12 +11,8 @@ function Folders({ folders, openPopupNewFolder, openPopupRenameFolder,
       />
       {folders.map(folder => 
         <Folder
+          folder={folder}
           key={folder.id}
-          path={folder.path}
-          logo={folder.logo} 
-          name={folder.name}
-          id={folder.id}
-          custom={folder.custom}
           openPopupRenameFolder={openPopupRenameFolder}
           openPopupDeleteFolder={openPopupDeleteFolder}
           setIsCurrentFolderRename={setIsCurrentFolderRename}

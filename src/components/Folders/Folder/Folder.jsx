@@ -1,33 +1,33 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import s from './Folder.module.css';
-import folder from '../../../images/folders/folder.png'
+import image from '../../../images/folders/folder.png'
 
-function Folder({ path, logo=folder, name, id, custom, openPopupRenameFolder, 
+function Folder({ folder, openPopupRenameFolder, 
   openPopupDeleteFolder, setIsCurrentFolderRename, setIsCurrentFolderDelete }) {
 
   const handleClickRenameFolder = () => {
     openPopupRenameFolder(true);
-    setIsCurrentFolderRename({name: name, id: id});
+    setIsCurrentFolderRename({name: folder.name, id: folder.id});
   }
 
   const handleClickDeleteFolder = () => {
     openPopupDeleteFolder(true);
-    setIsCurrentFolderDelete({id: id});
+    setIsCurrentFolderDelete({id: folder.id});
   }
 
   return (
     <NavLink 
-      to={path}
+      to={folder.path}
       className={s.folder}
     >
       <img
         className={s.logo}
-        src={logo}
-        alt={name}
+        src={folder.logo ? folder.logo : image}
+        alt={folder.name}
       />
-      <h2 className={s.title}>{name}</h2>
-      <div className={(custom ? s.buttons : s.buttons_disabled)}>
+      <h2 className={s.title}>{folder.name}</h2>
+      <div className={(folder.custom ? s.buttons : s.buttons_disabled)}>
         <button 
           className={`${s.button} ${s.rename}`}
           onClick={handleClickRenameFolder}

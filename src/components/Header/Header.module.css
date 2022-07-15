@@ -1,7 +1,6 @@
 .header {
   grid-area: header;
-  background-color: #202124;
-  background-color: #28AFEA;
+  background: #202124;
   padding: 0 30px;
   display: flex;
   justify-content: space-between;

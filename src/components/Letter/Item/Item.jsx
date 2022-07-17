@@ -25,7 +25,7 @@ function Item({ item, data, setIsLetter }) {
         isConfirmDelete={isConfirmDelete}
         setIsConfirmDelete={setIsConfirmDelete}
       />
-      <div className={!item.read ? s.new : ""}></div>
+      <div className={item.read ? "" : s.new}></div>
       <div className={s.buttons}>
         <button
           className={s.button + " " + (isMarker ? s.marker_active : s.marker)}

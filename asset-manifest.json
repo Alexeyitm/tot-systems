@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tot-systems/static/css/main.ae2db1fb.css",
-    "main.js": "/tot-systems/static/js/main.3f309bc5.js",
+    "main.js": "/tot-systems/static/js/main.de12d19e.js",
     "static/js/787.d7362b69.chunk.js": "/tot-systems/static/js/787.d7362b69.chunk.js",
     "static/media/background.jpg": "/tot-systems/static/media/background.0b62893946d29f3ec292.jpg",
     "static/media/delete.svg": "/tot-systems/static/media/delete.8b1ca1d838e85f4b688c.svg",
@@ -11,11 +11,11 @@
     "static/media/marker-active.svg": "/tot-systems/static/media/marker-active.44511451917baf2f72cb.svg",
     "static/media/no.svg": "/tot-systems/static/media/no.9b3ca0a0d99371975d47.svg",
     "main.ae2db1fb.css.map": "/tot-systems/static/css/main.ae2db1fb.css.map",
-    "main.3f309bc5.js.map": "/tot-systems/static/js/main.3f309bc5.js.map",
+    "main.de12d19e.js.map": "/tot-systems/static/js/main.de12d19e.js.map",
     "787.d7362b69.chunk.js.map": "/tot-systems/static/js/787.d7362b69.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ae2db1fb.css",
-    "static/js/main.3f309bc5.js"
+    "static/js/main.de12d19e.js"
   ]
 }
